@@ -1,0 +1,18 @@
+<p>main-page works!</p>
+
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-dbz-list [charactersList]="characters" (onDeleteCharacter)="onDeleteCharacter($event)" ></app-dbz-list>
+    </div>
+
+    
+    <div class="col">
+        
+        <app-dbz-add-character  (onNewCharacter)="dbzService.addCharacter($event)" ></app-dbz-add-character> 
+        
+
+    </div>
+
+</div>
