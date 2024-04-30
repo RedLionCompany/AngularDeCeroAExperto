@@ -1,0 +1,33 @@
+<p>Factura de Venta </p>
+
+
+<app-select-customer ></app-select-customer>
+
+<div class="row">
+    <div class="col-md-8">
+
+    <app-set-up-product [lineSellProduct]="lineSellProduct" (onNewProduct)="onNewLineSellProduct($event)"></app-set-up-product>
+   
+    <app-list-products  [listLineSellProduct]="listLineSellProducts" ></app-list-products>
+
+    <app-total-invoice [listLineSellProduct]="listLineSellProducts"></app-total-invoice>
+
+    <div class="payment-options">
+        <button class="btn btn-danger payment-options" (click)="cancelar()">Cancelar</button>
+        <br>
+        <button class="btn btn-primary payment-options " (click)="guardar()">Guardar</button>
+      </div>
+
+</div>
+
+    
+    <div class="col-md-4">
+        <app-select-product (onSelectProduct)="onSetProduct($event)"></app-select-product>
+    </div>
+
+</div>
+
+
+
+<br>
+<br>

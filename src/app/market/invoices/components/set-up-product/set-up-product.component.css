@@ -1,0 +1,44 @@
+.product-image-small {
+    width: 180px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+    border: 2px solid white; /* Adjust border width as needed */
+    padding: 5px; /* Add padding to create space between the border and the image */
+  }
+  
+
+  .product-name {
+    color:fuchsia; /* Dark blue color */
+    font-weight: bold; /* Optional: Make the text bold */
+    text-transform: uppercase; /* Optional: Convert text to uppercase */
+    margin-bottom: 10px; /* Add some margin below the heading */
+  }
+
+  .subtotal-display {
+    font-size: 18px; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    color: fuchsia; /* Green color (same as saldo) */
+  }
+
+
+  .quantity-buttons .btn-large {
+    padding: 10px 20px; /* Adjust padding for larger buttons */
+    font-size: 16px; /* Adjust font size for larger buttons */
+  }
+  
+  .quantity-buttons .btn-medium {
+    padding: 8px 16px; /* Adjust padding for medium buttons */
+    font-size: 14px; /* Adjust font size for medium buttons */
+  }
+  
+  .validation-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .positive-value-message {
+    color: green;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  

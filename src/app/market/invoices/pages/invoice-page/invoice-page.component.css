@@ -1,0 +1,10 @@
+.payment-options {
+    display: flex;
+    justify-content: space-between; /* Space buttons horizontally */
+    align-items: center; /* Align buttons vertically */
+    margin-top: 10px; /* Top margin */
+  margin-bottom: 30px; /* Bottom margin */
+  margin-left: 15px; /* Left margin */
+  margin-right: 25px; /* Right margin */
+  }
+  

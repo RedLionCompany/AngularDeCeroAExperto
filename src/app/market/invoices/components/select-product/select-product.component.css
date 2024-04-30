@@ -1,0 +1,27 @@
+.product-image-small {
+    width: 180px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+    border: 2px solid white; /* Adjust border width as needed */
+    padding: 5px; /* Add padding to create space between the border and the image */
+  }
+  
+
+  .product-name {
+    color:fuchsia; /* Dark blue color */
+    font-weight: bold; /* Optional: Make the text bold */
+    text-transform: uppercase; /* Optional: Convert text to uppercase */
+    margin-bottom: 10px; /* Add some margin below the heading */
+  }
+
+
+
+
+  .customer-info-card {
+    width: 450px; /* Adjust width as needed */
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 21px 51px fuchsia;
+    padding: 20px;
+    text-align: center; /* Center text */
+  }

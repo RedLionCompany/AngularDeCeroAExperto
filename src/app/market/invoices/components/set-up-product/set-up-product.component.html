@@ -1,0 +1,88 @@
+<p>Configura tu producto</p>
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        <img [src]="lineSellProduct.product?.photo" alt="{{ lineSellProduct.product?.name }}" class="product-image product-image-small">
+        <div class="stock-info d-flex flex-column">
+            <h5 class="product-name text-start mb-2">{{ lineSellProduct.product?.name }}</h5>
+            <ul class="stock-details list-unstyled pl-0">
+              <li><strong>Entrada:</strong> <span>{{ lineSellProduct.product?.price }}</span></li>
+              <li><strong>Vendidos:</strong> <span>{{ lineSellProduct.product?.price }}</span></li>
+              <li><strong>Stock:</strong> <span>{{ lineSellProduct.product?.price }}</span></li>
+            </ul>
+          </div>
+
+ 
+    </div>
+
+    <div class="col-md-6">
+
+
+        <form class="row" (ngSubmit)="sendProduct()">
+        
+            <span> $ </span>
+            <input type="number" [(ngModel)]="lineSellProduct.price" name="price" class="form-control mb-2" placeholder="Valor">
+            <div class="validation-message" *ngIf="lineSellProduct.price! < 1">
+                <p>El valor NO es válido</p>
+              </div>
+            <span> {{ lineSellProduct.price  | number:'1.0-2'}} </span>
+
+            <div class="quantity-buttons btn-group ms-2">
+                <button type="button" class="btn btn-outline-primary btn-large" (click)="addPrice(-1000)">-1.000</button>
+                <button type="button" class="btn btn-outline-primary btn-medium" (click)="addPrice(1000)">+1.000</button>
+              </div>
+
+
+            <span> # </span>
+            <input type="number" inputmode="numeric" [(ngModel)]="lineSellProduct.amount" name="amount" class="form-control mb-2" placeholder="Cantidad">
+            
+            <div class="validation-message" *ngIf="lineSellProduct.amount! <= 0">
+                <p>La cantidad NO es válida</p>
+              </div>
+              
+            
+              
+
+            <span> {{ lineSellProduct.amount| number:'1.0-2'}} </span>
+
+            <div class="quantity-buttons btn-group ms-2">
+                <button type="button" class="btn btn-outline-primary btn-large" (click)="setQuantity(1/2)">1/2</button>
+                <button type="button" class="btn btn-outline-primary btn-medium" (click)="setQuantity(1/4)">1/4</button>
+                <button type="button" class="btn btn-outline-primary" (click)="setQuantity(1)">1</button>
+                <button type="button" class="btn btn-outline-primary" (click)="setQuantity(0)">Borrar</button>
+              </div>
+
+<br>
+
+            <div class="quantity-buttons btn-group ms-2">
+                <button type="button" class="btn btn-outline-primary btn-large" (click)="addQuantity(1/2)">1/2</button>
+                <button type="button" class="btn btn-outline-primary btn-medium" (click)="addQuantity(1/4)">1/4</button>
+                <button type="button" class="btn btn-outline-primary" (click)="addQuantity(1)">1</button>
+                <button type="button" class="btn btn-outline-primary" (click)="setQuantity(0)">Borrar</button>
+              </div>
+
+
+           
+
+
+            <span> SubTotal </span>
+            <span class="subtotal subtotal-display">{{ calculateSubtotal(lineSellProduct) | currency:'USD':'symbol' }}</span>
+
+            <button *ngIf="lineSellProduct.amount! > 0" type="submit" class="btn btn-primary">
+                Agregar
+            </button>
+
+       <!-- <pre>{{ lineSellProduct | json }}</pre>-->
+
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+        

@@ -1,0 +1,108 @@
+.product-image-small {
+    width: 180px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+    border: 2px solid rgb(255, 255, 255); /* Adjust border width as needed */
+    padding: 5px; /* Add padding to create space between the border and the image */
+  }
+
+
+  .product-amount {
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center items horizontally */
+    height: 140px; /* Set a height for the container (adjust as needed) */
+    margin: 20px;
+    font-size: 40px;
+    width: 10rem; /
+  
+  }
+
+
+  .subtotal-display {
+    font-size: 18px; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    color: fuchsia; /* Green color (same as saldo) */
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .product-list-container {
+    width: 650px; /* Adjust width as needed */
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 21px 51px rgb(0, 145, 255);
+    padding: 20px;
+    text-align: center; /* Center text */
+  }
+
+
+  /* Adjust image dimensions and border as needed */
+
+
+/* Responsive adjustments */
+
+.large-font {
+  font-size: 24px;
+}
+
+.product-list-container {
+  width: 100%; /* Ensure container fills available width */
+}
+
+.product-list-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem; /* Add some padding for better spacing */
+  border-bottom: 1px solid #ddd; /* Add subtle border for separation */
+}
+
+.product-details {
+  display: flex;
+  flex-grow: 1; /* Allow details to expand as needed */
+}
+
+.product-image {
+  width: 8rem;
+  height: 7rem; /* Adjust image dimensions */  
+  align-self: left; /*
+}
+
+.product-info {
+  flex-grow: 1; /* Allow info to expand as needed */
+}
+
+.product-name,
+.product-code,
+.stock-details li {
+  margin-bottom: 0.5rem; /* Reduce margin slightly for compactness on small screens */
+}
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: auto; /* Align right on larger screens */
+  padding-left: 1rem; /* Add left padding for separation */
+  border-left: 1px solid #ddd; /* Add a thin border */
+}
+
+.price,
+.subtotal {
+  font-size: 1rem; /* Adjust font size for readability */
+  margin-bottom: 0.5rem;
+}
+
+
+
+.customer-info-card {
+  width: 600px; /* Adjust width as needed */
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 21px 51px rgb(0, 106, 255);
+  padding: 5px;
+  text-align: center; /* Center text */
+}

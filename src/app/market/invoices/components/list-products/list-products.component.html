@@ -1,0 +1,143 @@
+<p>list-products works!</p>
+
+
+<!-- <div class="product-list-container">
+    <ul class="list-group overflow-auto">
+      <li *ngFor="let product of products; let i = index; let isOdd = odd;"
+          class="list-group-item d-flex align-items-center">
+        <div class="product-details d-flex flex-grow-1">
+          <h5 class="product-name text-start mb-2">{{ product.nombre }} </h5> 
+          <div class="stock-info d-flex flex-column">
+            <p><strong></strong> <span> </span></p>
+            <p><strong>Cantidad de Entrada:</strong> <span>{{ product.cantidadInventario }}</span></p>
+            <p><strong>Stock:</strong> <span>{{ product.cantidadInventario }}</span></p>
+          </div>
+        </div>
+        <img [src]="product.foto" alt="{{ product.nombre }}" class="product-image">
+        <div class="btn-group ml-auto">
+          <button class="btn btn-primary">Selecionar</button>
+        </div>
+      </li>
+    </ul>
+  </div>-->
+
+<!--
+<div class="product-list-container">
+  <ul class="list-group overflow-auto">
+
+    <li *ngFor="let product of listLineSellProduct; let i = index; let isOdd = odd;"
+        class="product-list-item d-flex align-items-center">
+
+        <div class="product-info flex-grow-1">
+          <h5 class="product-name text-start mb-2 subtotal-display uppercase">{{ product.product?.nombre }}</h5>
+         
+          <ul class="stock-details list-unstyled pl-0">
+            <li><strong>Cantidad #:</strong> 
+              <br><span style="font-size: 40px;">{{ product.amount }}</span></li>
+
+
+            
+          </ul>
+        </div>
+
+       
+      
+        <img [src]="product.product?.foto" alt="{{ product.product?.nombre }}" class="product-image">
+      
+
+      <div class="product-price d-flex flex-column justify-content-between"> <p class="price mb-0">{{ product.price | currency:'USD':'symbol' }}</p>
+        <span class="subtotal subtotal-display">{{ calculateSubtotal(product) | currency:'USD':'symbol' }}</span>
+        
+        <br>
+        <button class="btn btn-info">Editar</button>
+        <br>
+        <button class="btn btn-danger">Borrar</button>
+        
+        
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+<div class="product-list-container">
+  <ul class="list-group overflow-auto">
+
+    <li *ngFor="let product of listLineSellProduct; let i = index; let isOdd = odd;"
+        class="product-list-item d-flex align-items-center">
+
+      <div class="product-details d-flex flex-grow-1">
+        <img [src]="product.product?.foto" alt="{{ product.product?.nombre }}"
+             class="product-image product-image-small">
+        <div class="product-info flex-grow-1">
+          <div class="product-info flex-grow-1">
+            <h5 class="product-name text-start mb-2 subtotal-display uppercase">{{ product.product?.nombre }}</h5>
+           
+            <ul class="stock-details list-unstyled pl-0">
+              <li><strong>Cantidad #:</strong> 
+                <br><span style="font-size: 40px;">{{ product.amount }}</span></li>
+  
+  
+              
+            </ul>
+          </div>
+        
+        </div>
+      </div>
+
+      <div class="product-price flex-column">
+        <p class="price mb-0">{{ product.price | currency:'USD':'symbol' }}</p>
+        <span class="subtotal subtotal-display">{{ calculateSubtotal(product) | currency:'USD':'symbol' }}</span>
+        <br>
+        <button class="btn btn-info">Editar</button>
+        <br>
+        <button class="btn btn-danger">Borrar</button>
+      </div>
+    </li>
+  </ul>
+</div>
+-->
+
+
+
+
+
+
+<div class="product-list-container">
+  <ul class="list-group overflow-auto">
+
+    <span *ngIf="listLineSellProduct.length == 0"> No hay productos seleccionados</span>
+
+    <li *ngFor="let product of listLineSellProduct; let i = index; let isOdd = odd;"
+        class="product-list-item d-flex align-items-center">
+
+      <div class="product-details d-flex flex-grow-1">
+        <img [src]="product.product?.photo" alt="{{ product.product?.name }}"
+             class="product-image product-image-small">
+        <div class="product-info flex-grow-2">
+          <h5 class="product-name text-start mb-1 subtotal-display uppercase">{{ product.product?.name }}
+          </h5>
+         
+          <strong>Cantidad #:</strong> 
+            <br><span style="font-size: 40px;">{{ product.amount }}</span>
+
+        </div>
+      </div>
+
+      <div class="product-price flex-column">
+        <p class="price mb-0">${{ product.price | number:'1.0-2'}}</p>
+        
+
+        <span class="subtotal subtotal-display">${{ calculateSubtotal(product) | number:'1.0-2' }}</span>
+        
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+

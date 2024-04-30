@@ -1,0 +1,32 @@
+.invoice-summary {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-info {
+    margin-bottom: 20px;
+  }
+  
+  .total-row,
+  .payment-method-row,
+  .credit-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .total-amount {
+    font-weight: bold;
+  }
+  
+  .payment-options {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn {
+    margin-right: 5px;
+  }
+  

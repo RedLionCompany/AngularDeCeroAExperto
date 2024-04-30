@@ -1,0 +1,23 @@
+<p>Seleccione su Producto!</p>
+
+<div class="customer-info-card">
+
+  <li *ngFor="let product of products; let i = index; let isOdd = odd;"
+    class="list-group-item d-flex align-items-center">
+  <div class=" d-flex flex-grow-1">
+
+    <div class="stock-info d-flex flex-column">
+      <h5 class="product-name text-start mb-2">{{ product.name }}</h5>
+      <ul class="stock-details list-unstyled pl-0">
+        <li><strong>Entrada:</strong> <span>{{ product.price }}</span></li>
+        <li><strong>Vendidos:</strong> <span>{{ product.price }}</span></li>
+        <li><strong>Stock:</strong> <span>{{ product.price }}</span></li>
+        <li><strong>Price:</strong> <span>{{ product.price }}</span></li>
+      </ul>
+    </div>
+
+  </div>
+  <img [src]="product.photo" alt="{{ product.name }}" class="product-image product-image-small">
+  <button class="btn btn-primary" (click)="sendProduct(i)" style="justify-content: center;">Seleccionar</button>
+</li>
+</div>
