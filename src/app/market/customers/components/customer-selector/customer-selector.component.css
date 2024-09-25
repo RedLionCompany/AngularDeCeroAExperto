@@ -1,0 +1,65 @@
+.customer-selector {
+  max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor */
+  padding: 20px;
+  border: 1px solid #ccc; /* Borde para visualización */
+}
+
+.customer-list {
+  margin-top: 20px; /* Espacio entre la barra de búsqueda y la lista de clientes */
+}
+
+.customer-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee; /* Borde inferior entre elementos */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.customer-item:hover {
+  background-color: #f9f9f9; /* Cambia el color de fondo al pasar por encima */
+}
+
+.customer-details {
+  display: flex;
+  align-items: center;
+}
+
+.customer-photo img {
+  width: 150px; /* Tamaño de la foto del cliente */
+  height: 100px;
+  border-radius: 50%; /* Borde redondeado para la imagen */
+  margin-right: 20px; /* Espacio entre la imagen y la información del cliente */
+}
+
+.customer-info {
+  flex: 1;
+}
+
+.customer-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.customer-info p {
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.customer-info span {
+  font-size: 14px;
+  color: #666;
+}
+
+.search-bar {
+  margin-bottom: 10px; /* Espacio bajo la barra de búsqueda */
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

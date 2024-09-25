@@ -27,13 +27,28 @@ throw new Error('Method not implemented.');
 
  invoiceTotal (): number{
     this.total = 0;
-  for (let index = 0; index < this.listLineSellProduct.length; index++) {
-     this.total += this.listLineSellProduct[index].amount! * this.listLineSellProduct[index].price!;
+    for (let index = 0; index < this.listLineSellProduct.length; index++) {
+      this.total += this.listLineSellProduct[index].amount! * this.listLineSellProduct[index].price!;
+    }
+    return this.total;
   }
 
-  return this.total
 
-}
+  discount(total: number,  inMoney:number): number {
+    if (inMoney >= total) {
+      return 0;
+    } else {
+      return total - inMoney;
+    }
+  }
+
+  refund(total: number,  inMoney:number): number {
+    if (inMoney > total) {
+      return (total - inMoney)*-1;
+    } else {
+      return 0;
+    }
+  }
 
 
 

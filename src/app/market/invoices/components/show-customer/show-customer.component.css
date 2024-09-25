@@ -1,0 +1,59 @@
+.customer-info-card {
+  width: 350px; /* Adjust width as needed */
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+  padding: 20px;
+  text-align: center; /* Center text */
+}
+
+.customer-header {
+  display: flex; /* Enable Flexbox layout */
+  align-items: center; /* Align items vertically */
+}
+
+.customer-header img {
+  width: 80px; /* Adjust logo size */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 15px; /* Spacing between logo and text */
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.customer-details {
+  margin-top: 20px; /* Spacing between header and details */
+}
+
+.estado {
+  color: #dc3545; /* Red color for estado */
+  margin-bottom: 10px;
+}
+
+.saldo {
+  font-size: 18px; /* Larger font size for saldo */
+  font-weight: bold;
+  color: #28a745; /* Green color for saldo */
+}
+
+
+
+.factura-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #f00; /* Borde rojo */
+  background-color: #fff; /* Fondo blanco */
+  color: #f00; /* Texto rojo */
+  font-size: 16px;
+  border-radius: 5px; /* Bordes redondeados pequeños */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  
+  padding: 0 50px; /* Aumenta el espacio a 30px */
+}

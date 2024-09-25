@@ -8,6 +8,16 @@ import { SelectCustomerComponent } from './components/select-customer/select-cus
 import { TotalInvoiceComponent } from './components/total-invoice/total-invoice.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ShowCustomerComponent } from './components/show-customer/show-customer.component';
+import { CustomerSelectorComponent } from '../customers/components/customer-selector/customer-selector.component';
+import { BrowserModule } from '@angular/platform-browser';
+
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -19,12 +29,21 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     SelectProductComponent,
     SetUpProductComponent,
     SelectCustomerComponent,
-    TotalInvoiceComponent
+    TotalInvoiceComponent,
+    ShowCustomerComponent,
+    CustomerSelectorComponent
+
   ],
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    MatDialogModule,
+     MatFormFieldModule,
+    MatInputModule,
+     MatButtonModule,
+     MatListModule
   ],
   exports: [
    InvoicePageComponent

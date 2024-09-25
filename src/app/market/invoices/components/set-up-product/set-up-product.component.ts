@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, Pipe } from '@angular/core';
 import { LineSellProduct } from '../../interfaces/line-sell-product.interface';
 import { Product } from '../../interfaces/product.interface';
+import { InvoicesService } from '../../services/invoices.service';
 
 @Component({
   selector: 'app-set-up-product',
@@ -9,12 +10,16 @@ import { Product } from '../../interfaces/product.interface';
 })
 export class SetUpProductComponent {
 
+
+
   @Output()
   public onNewProduct: EventEmitter<LineSellProduct> = new EventEmitter();
 
 
   @Input()
   public lineSellProduct: LineSellProduct = {
+
+  
     product: {
       name: '',
       code: '',
@@ -30,6 +35,13 @@ export class SetUpProductComponent {
       },
       description: ''
   },
+  }
+
+
+
+
+  constructor( public invoicesService: InvoicesService){
+    
   }
 
   setQuantity(number: number) {
@@ -51,32 +63,41 @@ export class SetUpProductComponent {
     addPrice(number: number) {
       this.lineSellProduct.price! += number;
       }
-      
-  
+    
+
   sendProduct():void {
     console.error('pilas');
     console.log(this.lineSellProduct);
+  
+    // save in DataBase
+      this.invoicesService.saveLineInvoice().subscribe(line => {
+      console.log("dentttrrooo de la linea aaaaa");
+      console.log(line);
+      });
+    
+    // add to front
+      if(this.lineSellProduct.product!.name.length === 0) return;
 
-    if(this.lineSellProduct.product!.name.length === 0) return;
+      this.onNewProduct.emit({...this.lineSellProduct});
 
-    this.onNewProduct.emit({...this.lineSellProduct});
-
-    this.lineSellProduct.price = undefined;
-    this.lineSellProduct.amount = undefined;
-    this.lineSellProduct.product =  { name: '',
-    price: 0,
-    id: 0,
-    code: '',
-    description: '',
-    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKcGzCaxgQ9nERapwbUJBxxOH-60zG882wvQ&usqp=CAU',
-    unit_catalogo: {
+      this.lineSellProduct.price = undefined;
+      this.lineSellProduct.amount = undefined;
+      this.lineSellProduct.product =  { name: '',
+      price: 0,
+      id: 0,
+      code: '',
+      description: '',
+      photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKcGzCaxgQ9nERapwbUJBxxOH-60zG882wvQ&usqp=CAU',
+      unit_catalogo: {
       id: 0,
       code: '',
       description: ''
     },
     weight: 0
   };
+  
   }
+  
 
   calculateSubtotal(lineSellProduct: LineSellProduct) {
     if (!lineSellProduct || !lineSellProduct.price || !lineSellProduct.amount) {

@@ -1,0 +1,25 @@
+<div class="customer-selector">
+  <h2>Seleccionar cliente</h2>
+
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar por nombre, dirección o establecimiento">
+  </div>
+
+  <div class="customer-list">
+    <ng-container *ngFor="let customer of filteredCustomers">
+      <div class="customer-item" (click)="selectCustomer(customer)">
+        <div class="customer-details">
+          <div class="customer-photo">
+            <img [src]="customer.photo" alt="Foto del cliente">
+          </div>
+          <div class="customer-info">
+            <h3>{{ customer.name }}</h3>
+            <p>{{ customer.direccion }}</p>
+            <span>{{ customer.establishment }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
