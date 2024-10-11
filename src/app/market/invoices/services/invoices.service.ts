@@ -45,9 +45,9 @@ export class InvoicesService {
     number:'369',
     customer: {
       id: 1,
-      name: 'Carulla',
+      name: 'Carullaqq',
       code: 'SuperMarket',
-      photo: '',
+      photo: 'https://cdn.prod.website-files.com/5e38f1a8e654dab96f303972/63c84da22b7ea11f3a242b71_Desaf%C3%ADos-de-Servicio-al-Cliente-en-los-Bancos-Cover.png',
       direccion: 'Calle 116 con Autopista Bogotá',
       establishment: "Bogotá"
     },

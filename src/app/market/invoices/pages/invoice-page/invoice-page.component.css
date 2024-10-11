@@ -32,3 +32,38 @@ p.invoice-title {
 p.invoice-title {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow */
 }
+
+
+button {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border-style: solid;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #4a90e2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+
+.custom-dialog-container .mat-dialog-container {
+  background-color: pink; /* Fondo rosado */
+  color: black;           /* Color de texto */
+  border-radius: 8px;     /* Borde redondeado, opcional */
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Espacio entre los componentes */
+}
+
+app-customer-selector,
+app-show-customer {
+  flex: 1; /* O ajusta los valores según el espacio que quieras que ocupen */
+}

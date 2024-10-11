@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { PickCustomerComponent } from './components/pick-customer/pick-customer.component';
 
 
 
@@ -31,7 +32,8 @@ import { MatListModule } from '@angular/material/list';
     SelectCustomerComponent,
     TotalInvoiceComponent,
     ShowCustomerComponent,
-    CustomerSelectorComponent
+    CustomerSelectorComponent,
+    PickCustomerComponent
 
   ],
   imports: [
@@ -40,10 +42,10 @@ import { MatListModule } from '@angular/material/list';
     HttpClientModule,
 
     MatDialogModule,
-     MatFormFieldModule,
+    MatFormFieldModule,
     MatInputModule,
-     MatButtonModule,
-     MatListModule
+    MatButtonModule,
+    MatListModule
   ],
   exports: [
    InvoicePageComponent

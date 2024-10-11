@@ -1,0 +1,18 @@
+.square {
+    width: 200px;       /* Ancho del cuadrado */
+    height: 200px;      /* Alto del cuadrado */
+    background-color: #4caf50; /* Color de fondo */
+    border: 2px solid #333;    /* Borde */
+    margin: 20px auto;  /* Centrado con margen */
+  }
+  .custom-backdrop {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+  }
+  
+  .custom-modal {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  

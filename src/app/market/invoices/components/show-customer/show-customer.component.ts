@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Customer } from '../../interfaces/customer.interface';
 import { Filter } from './filter.component';
 
@@ -9,6 +9,20 @@ import { Filter } from './filter.component';
 })
 export class ShowCustomerComponent {
 
+  public factNumber: number = 23456;
+
+
+  @Output()
+  public onActiveCustomer: EventEmitter<number> = new EventEmitter();
+  public isActiveCustomer: number = 0;
+
+
+
+  findCustomer() {
+    this.isActiveCustomer = 1;
+    this.onActiveCustomer.emit(this.isActiveCustomer);
+  }
+
   @Input()
   public customer: Customer = {
     name: '',
@@ -18,6 +32,7 @@ export class ShowCustomerComponent {
     establishment: ''
   };
   
+
   
 
 

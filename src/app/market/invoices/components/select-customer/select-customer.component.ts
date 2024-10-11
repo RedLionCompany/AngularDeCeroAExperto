@@ -69,6 +69,7 @@ export class SelectCustomerComponent {
 
 
   sendCustomer(customer: Customer) {
+    console.log("Send customer");
     this.selectCustomer = customer;
     this.onSelectCustomer.emit({...this.selectCustomer});
 

@@ -12,6 +12,23 @@ export class CustomerSelectorComponent {
   searchTerm: string = ''; // Add searchTerm property
   searchQuery: string = '';
 
+  @Output()
+  public onSelectCustomer: EventEmitter<Customer> = new EventEmitter();
+
+
+  @Output()
+  public onActiveCustomer: EventEmitter<number> = new EventEmitter();
+  public isActiveCustomer: number = 0;
+
+  currentCustomer: Customer = {
+    name: '',
+    code: '',
+    photo: '',
+    direccion: '',
+    establishment : ''
+  };
+
+
 
   @Input()
   customers: Customer[] = [{
@@ -97,8 +114,7 @@ export class CustomerSelectorComponent {
     establishment: "Mizar"
   }
 ];
-  @Output() selectedCustomer = new EventEmitter<any>();
-
+  
   
   
 
@@ -114,6 +130,13 @@ export class CustomerSelectorComponent {
   }
 
   selectCustomer(customer: any) {
-    this.selectedCustomer.emit(customer);
+    console.log('customer selector');
+    this.currentCustomer = customer;
+    this.onSelectCustomer.emit({...this.currentCustomer});
+
+
+    this.isActiveCustomer = 0;
+    this.onActiveCustomer.emit(this.isActiveCustomer);
   }
+
 }

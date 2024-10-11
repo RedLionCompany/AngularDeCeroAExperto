@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+.custom-backdrop {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+  }
+  
+  .custom-modal {
+    border-radius: 118px;
+    padding: 120px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+    text-align: left;
+  }
+  
