@@ -1,0 +1,15 @@
+<!-- <div class="flex-container">
+     <app-filter-sales></app-filter-sales>
+   <app-report-sale-grid [sales]="salesList"></app-report-sale-grid>
+</div> -->
+
+
+<div class="flex-container">
+    <div style="height: 1px;"></div> <!-- Espaciado -->
+    <!-- <app-filter-sales></app-filter-sales> -->
+
+    <app-filter-sales (salesChange)="updateSales($event)"></app-filter-sales>
+    <!-- <app-filter-sales></app-filter-sales> -->
+    <app-report-sale-grid [sales]="salesList"></app-report-sale-grid>
+  </div>
+  

@@ -1,0 +1,66 @@
+.filter-container-modern {
+  background-color: #121212; /* Fondo negro profundo */
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.form-layout-modern {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: span 2; /* Campos amplios abarcan todo el ancho */
+}
+
+.label-modern {
+  font-size: 1rem;
+  color: #e0e0e0; /* Blanco suave */
+  margin-bottom: 5px;
+}
+
+.input-field-modern {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  transition: border-color 0.3s;
+}
+
+.input-field-modern:focus {
+  border-color: #ff00ff; /* Resaltado fucsia */
+  outline: none;
+}
+
+.button-group-modern {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-modern {
+  background-color: #ff00ff; /* Fucsia vibrante */
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-modern:hover {
+  background-color: #d400d4; /* Fucsia más oscuro */
+  transform: translateY(-2px);
+}

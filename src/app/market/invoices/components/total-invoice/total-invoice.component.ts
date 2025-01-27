@@ -1,5 +1,5 @@
 import { Component, Input, input } from '@angular/core';
-import { LineSellProduct } from '../../interfaces/line-sell-product.interface';
+import { SaleDetail } from '../../interfaces/sale-detail.interface';
 
 @Component({
   selector: 'app-total-invoice',
@@ -20,7 +20,7 @@ throw new Error('Method not implemented.');
   description: string = ''; // Initialize description
 
   @Input()
-  public listLineSellProduct: LineSellProduct[] = [];
+  public listLineSellProduct: SaleDetail[] = [];
 
 
 
@@ -28,7 +28,7 @@ throw new Error('Method not implemented.');
  invoiceTotal (): number{
     this.total = 0;
     for (let index = 0; index < this.listLineSellProduct.length; index++) {
-      this.total += this.listLineSellProduct[index].amount! * this.listLineSellProduct[index].price!;
+      this.total += this.listLineSellProduct[index].quantity! * this.listLineSellProduct[index].pricePerUnit!;
     }
     return this.total;
   }

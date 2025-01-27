@@ -1,0 +1,12 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <h2>Seleccionar Producto</h2>
+      <ul class="product-list">
+        <li *ngFor="let product of products" (click)="selectProduct(product)">
+          {{ product.name }} ({{ product.code }})
+        </li>
+      </ul>
+      <button class="btn-close" (click)="onClose()">Cerrar</button>
+    </div>
+  </div>
+  

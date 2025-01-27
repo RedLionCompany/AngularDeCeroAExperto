@@ -67,3 +67,26 @@ app-customer-selector,
 app-show-customer {
   flex: 1; /* O ajusta los valores según el espacio que quieras que ocupen */
 }
+
+.factura-rect {
+  flex: 0 0 25%; /* Ocupa el 25% del ancho, dejando algo de margen */
+  width: auto;
+  height: 80px;
+  border-radius: 15px;
+  background-color: #f0f8ff;
+  border: 2px solid #3498db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* archivo.css */
+.invoice-page {
+  background-color: black;
+  color: white; /* Color blanco para el texto */
+}

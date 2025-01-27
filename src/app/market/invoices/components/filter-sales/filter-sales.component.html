@@ -1,0 +1,37 @@
+<div class="filter-container-modern">
+  <form [formGroup]="filterForm" class="form-layout-modern">
+    <div class="form-group">
+      <label for="startDate" class="label-modern">Fecha Inicio</label>
+      <input type="datetime-local" formControlName="startDate" class="input-field-modern">
+    </div>
+
+    <div class="form-group">
+      <label for="endDate" class="label-modern">Fecha Fin</label>
+      <input type="datetime-local" formControlName="endDate" class="input-field-modern">
+    </div>
+
+    <div class="form-group full-width">
+      <label for="product" class="label-modern">Producto</label>
+      <input type="text" formControlName="product" class="input-field-modern" readonly (click)="openProductModal()" placeholder="Buscar producto...">
+    </div>
+
+    <div class="form-group full-width">
+      <label for="customer" class="label-modern">Cliente</label>
+      <input type="text" formControlName="customer" class="input-field-modern" readonly (click)="openCustomerModal()" placeholder="Buscar cliente...">
+    </div>
+
+    <div class="form-group full-width">
+      <label for="invoiceNumber" class="label-modern"># Número de Factura</label>
+      <input type="text" formControlName="invoiceNumber" class="input-field-modern" placeholder="Ingresa el número de factura">
+    </div>
+
+    <div class="button-group-modern full-width">
+      <button type="button" (click)="setToday()" class="btn-modern btn-today">Hoy</button>
+      <button type="button" (click)="search()" class="btn-modern btn-search">Buscar</button>
+      <button type="button" (click)="clearFilters()" class="btn-modern btn-clear">Limpiar</button>
+    </div>
+  </form>
+
+  <app-product-modal *ngIf="isProductModalOpen" (close)="closeProductModal()" (select)="onProductSelect($event)"></app-product-modal>
+  <app-customer-modal *ngIf="isCustomerModalOpen" (close)="closeCustomerModal()" (select)="onCustomerSelect($event)"></app-customer-modal>
+</div>

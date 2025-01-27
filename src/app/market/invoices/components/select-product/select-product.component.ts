@@ -16,18 +16,21 @@ export class SelectProductComponent {
   public onSelectProduct: EventEmitter<Product> = new EventEmitter();
 
   public selectProduct: Product = {
-    name: '',
-    code: '',
-    photo: '',
-    price: 0,
-    weight: 0,
+
     id: 0,
+    code: '',
+    name: '',
+    description: '',
+    photo: '',
     unit_catalogo: {
       id: 0,
       code: '',
       description: ''
     },
-    description: ''
+    reorderLevel: 0,
+    dimensions: '',
+    weight: 0,
+    price: 0
   }
 
   products: Product[] = [];
@@ -48,9 +51,9 @@ export class SelectProductComponent {
     
     if(this.selectProduct.name.length === 0) return;
 
-    this.invoicesService.lineSellProduct.price = this.selectProduct.price;
+    this.invoicesService.saleDetail.pricePerUnit = this.selectProduct.price;
     this.onSelectProduct.emit({...this.selectProduct});
-;console.log('top 1 b')
+    
   }
   
 }

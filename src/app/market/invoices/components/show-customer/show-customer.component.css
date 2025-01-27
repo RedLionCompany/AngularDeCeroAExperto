@@ -1,189 +1,94 @@
-.customer-info-card {
-  width: 350px; /* Adjust width as needed */
-  margin: 20px auto;
-  background-color: #fff;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que los elementos salten a la siguiente línea si no caben */
+  gap: 120px; /* Añade espacio entre las tarjetas */
   padding: 20px;
-  text-align: center; /* Center text */
+  background-color: #1E1E2D;
+  border-radius: 20px;
+  width: 90%; /* Ajusté el ancho para que sea más razonable */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+.col-md {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Asegura que las tarjetas se alineen en una columna si hay más contenido */
+  margin: 10px; /* Añade espacio externo alrededor del contenedor de cada tarjeta */
+  width: 100%; /* Hace que ocupe el ancho completo disponible */
+  max-width: 400px; /* Limita el ancho máximo */
+}
+
+.customer-info-card {
+  background-color: #1E1E2D;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* Ajusta el ancho a su contenedor padre */
+  color: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para destacar las tarjetas */
 }
 
 .customer-header {
-  display: flex; /* Enable Flexbox layout */
-  align-items: center; /* Align items vertically */
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.customer-header img {
-  width: 180px; /* Adjust logo size */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 15px; /* Spacing between logo and text */
+.customer-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin-right: 15px; /* Espacio entre la imagen y el texto */
+  border: 2px solid #ff00d4;
 }
 
-h2 {
-  font-size: 22px;
+.customer-name {
+  font-size: 20px;
   font-weight: bold;
-  margin: 0;
+  color: #FFFFFF;
+  padding: 20px;
 }
 
 .customer-details {
-  margin-top: 20px; /* Spacing between header and details */
+  margin-bottom: 20px;
 }
 
-.estado {
-  color: #dc3545; /* Red color for estado */
-  margin-bottom: 10px;
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
 }
 
-.saldo {
-  font-size: 18px; /* Larger font size for saldo */
+.label {
+  font-size: 14px;
+  color: #A3A3A3;
+}
+
+.value {
+  font-size: 14px;
   font-weight: bold;
-  color: #28a745; /* Green color for saldo */
+  color: #ff00bf;
 }
 
-
-
-.factura-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border: 1px solid #f00; /* Borde rojo */
-  background-color: #fff; /* Fondo blanco */
-  color: #f00; /* Texto rojo */
-  font-size: 16px;
-  border-radius: 5px; /* Bordes redondeados pequeños */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  
-  padding: 0 50px; /* Aumenta el espacio a 30px */
-}
-
-.factura-opcion-1 {
-  width: 160px;
-  height: 80px;
-  border-radius: 15px;
-  background-color: #f0f8ff;
-  border: 2px solid #3498db;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #2c3e50;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
-.factura-opcion-2 {
-  width: 140px;
-  height: 140px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  border: 1px solid transparent;
-}
-
-.factura-opcion-3 {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px dashed #2ecc71;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
-  color: #2ecc71;
-  font-weight: bold;
-  background-color: #f4f9f4;
-}
-.factura-opcion-4 {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ff9a9e, #fad0c4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  font-weight: 700;
-  color: #ffffff;
-  border: 2px solid #f5b7b1;
-}
-
-.factura-opcion-5 {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background-color: #2c3e50;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  color: #8e44ad;
-  font-weight: bold;
-  border: 2px solid #8e44ad;
-  box-shadow: 0 0 15px rgba(142, 68, 173, 0.7);
-  animation: neon-glow 1.5s infinite alternate;
-}
-
-@keyframes neon-glow {
-  from {
-    box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
-  }
-  to {
-    box-shadow: 0 0 20px rgba(142, 68, 173, 1);
-  }
-}
-
-.factura-rect {
-  width: 260px;
-  height: 80px;
-  border-radius: 15px;
-  background-color: #f0f8ff;
-  border: 2px solid #3498db;
-  display: inline-flex; /* Asegura que esté en la misma línea */
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #2c3e50;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-.container {
-  display: flex;
-  justify-content: space-between; /* Espacio entre los dos div */
-  align-items: center; /* Alinear verticalmente al centro */
-}
-
-.customer-info-card {
-  flex: 0 0 70%; /* Ocupa el 70% del ancho */
-  background-color: #f9f9f9;
+.button-container {
+  text-align: center;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.factura-rect {
-  flex: 0 0 25%; /* Ocupa el 25% del ancho, dejando algo de margen */
-  width: auto;
-  height: 80px;
-  border-radius: 15px;
-  background-color: #f0f8ff;
-  border: 2px solid #3498db;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+.btn-primary {
+  background-color: #ff00f7;
+  color: #1E1E2D;
+  font-size: 16px;
   font-weight: bold;
-  color: #2c3e50;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #cc00ad;
 }

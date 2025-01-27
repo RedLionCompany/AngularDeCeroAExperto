@@ -7,16 +7,16 @@ import { CounterModule } from './counter/components/counter/counter.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { DbzModule } from './dbz/dbz.module';
 import { InvoicesModule } from './market/invoices/invoices.module';
-import { HttpClient } from '@angular/common/http';
 import { SelectDefaltCustomerComponent } from './market/customers/components/select-defalt-customer/select-defalt-customer.component';
-import { CustomerSelectorComponent } from './market/customers/components/customer-selector/customer-selector.component';
 import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './market/menu/menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SelectDefaltCustomerComponent
+    SelectDefaltCustomerComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

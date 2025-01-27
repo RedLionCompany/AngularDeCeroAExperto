@@ -13,3 +13,38 @@
     text-align: left;
   }
   
+
+  .container-app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #f0f0f0; /* Fondo gris claro */
+    color: #333; /* Ajusta el color del texto si es necesario */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para diferenciar el menú */
+    padding: 15px; /* Opcional: ajusta el espacio dentro del menú */
+}
+
+
+app-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(218, 38, 228); /* Fondo gris */
+  z-index: 1000; /* Trae el menú al frente */
+  height: 50px; /* Ajusta la altura del menú */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el menú */
+}
+
+
+.container {
+  margin-top: 50px; /* Igual a la altura de <app-menu> */
+}
+
+
+
+body {
+  background-color: black;
+}

@@ -5,7 +5,7 @@ import { Product } from '../../interfaces/product.interface';
 import { PickCustomerComponent } from '../../components/pick-customer/pick-customer.component';
 import { InvoicesService } from '../../services/invoices.service';
 import { Customer } from '../../interfaces/customer.interface';
-import { LineSellProduct } from '../../interfaces/line-sell-product.interface';
+import { SaleDetail } from '../../interfaces/sale-detail.interface';
 
 
 
@@ -25,6 +25,9 @@ export class InvoicePageComponent {
 
   // variables para manejar los componentes
   isActiveCustomer: number = 0;
+
+  // number of invoice
+  public factNumber: number = 23456;
 
   openModal(): void {
     const dialogRef = this._dialog.open(CustomerSelectorComponent, {
@@ -50,7 +53,7 @@ export class InvoicePageComponent {
   }
 
   get customer(): Customer {
-    return this.invoicesService.invoice.customer!;
+    return this.invoicesService.sale.customer!;
   }
 
   onSetCustomer(customer: Customer):void {
@@ -68,15 +71,15 @@ export class InvoicePageComponent {
   }
     
 
-  get listLineSellProducts(): LineSellProduct[] {
-    return [...this.invoicesService.invoice.listLineSellProduct!];
+  get listLineSellProducts(): SaleDetail[] {
+    return [...this.invoicesService.sale.listSalesDetails!];
   }
 
-  get lineSellProduct(): LineSellProduct {
-    return this.invoicesService.lineSellProduct;
+  get lineSellProduct(): SaleDetail {
+    return this.invoicesService.saleDetail;
   }
 
-  onNewLineSellProduct(lineSellProduct: LineSellProduct){
+  onNewLineSellProduct(lineSellProduct: SaleDetail){
     this.invoicesService.addLineSellProduct(lineSellProduct);
   }
 
@@ -85,7 +88,7 @@ export class InvoicePageComponent {
         console.log("Mostrar el Json");
     
         this.invoicesService.saveInvoice().subscribe(invoice => {
-          console.log("Dentro del subcribe");
+          console.log("dentro del subcribe");
           console.log(invoice);
       });
     /*

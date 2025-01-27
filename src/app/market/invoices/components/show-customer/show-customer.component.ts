@@ -9,7 +9,7 @@ import { Filter } from './filter.component';
 })
 export class ShowCustomerComponent {
 
-  public factNumber: number = 23456;
+  
 
 
   @Output()
@@ -28,8 +28,12 @@ export class ShowCustomerComponent {
     name: '',
     code: '',
     photo: '',
-    direccion: '',
-    establishment: ''
+    address: '',
+    establishment: '',
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   };
   
 

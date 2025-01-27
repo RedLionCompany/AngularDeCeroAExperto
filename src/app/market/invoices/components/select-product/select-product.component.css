@@ -13,9 +13,6 @@
     margin-bottom: 10px; /* Add some margin below the heading */
   }
 
-
-
-
   .customer-info-card {
     width: 450px; /* Adjust width as needed */
     margin: 20px auto;
@@ -25,3 +22,29 @@
     padding: 20px;
     text-align: center; /* Center text */
   }
+
+  .product-list-container {
+    max-height: 500px; /* Define la altura máxima del contenedor */
+    overflow-y: auto;  /* Habilita el scroll vertical si se supera la altura máxima */
+    border: 1px solid #ddd; /* Opcional: para visualizar los límites del contenedor */
+    padding: 10px;     /* Espacio interno para que no esté pegado al borde */
+  }
+  
+  .list-group-item {
+    margin-bottom: 10px; /* Espacio entre los elementos de la lista */
+  }
+  
+  .product-image {
+    width: 100px;           /* Ancho fijo más grande */
+    height: 100px;          /* Alto fijo más grande */
+    object-fit: cover;      /* Recorta la imagen para que se ajuste sin deformarse */
+    border-radius: 10px;    /* Bordes redondeados */
+    margin-left: 15px;      /* Espacio entre la imagen y el contenido */
+    margin-right: 20px;     /* Espacio adicional entre la imagen y el botón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para mejorar el aspecto visual */
+  }
+  
+  .btn {
+    margin-left: 20px;      /* Espacio adicional entre la imagen y el botón */
+  }
+    

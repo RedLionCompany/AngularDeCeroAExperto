@@ -1,21 +1,30 @@
 
-  <div class="container">
-    <div class="customer-info-card">
-      <div class="customer-header">
-        <img src='{{customer.photo}}' alt="Carulla Logo">
-        <h2>Cliente: {{ customer.name }}</h2>
+<div class="row">
+  <div class="col-md">
+
+  
+  <div class="customer-info-card">
+    <div class="customer-header">
+      <img src="{{customer.photo}}" alt="Logo Cliente" class="customer-photo">
+      <h2 class="customer-name">{{ customer.name }}</h2>
+    
+   
+   
+    <div class="customer-details">
+      <div class="detail-row">
+        <span class="label">Saldo:</span>
+        <span class="value">TODO</span>
       </div>
-      <div class="customer-details">
-        <p class="estado">Estado: Debe 2 facturas</p>
-        <p class="saldo">Saldo: $700.000</p>
+      <div class="detail-row">
+        <span class="label">Estado:</span>
+        <span class="value">TODO</span>
       </div>
-      <button class="btn btn-primary" (click)="findCustomer()">Buscar</button>
     </div>
   
-    <div class="factura-rect">
-      # {{ factNumber }}
+    <div class="button-container">
+      <button class="btn-primary" (click)="findCustomer()">Buscar Cliente</button>
     </div>
   </div>
-  
-  
-  
+</div>  
+</div>
+

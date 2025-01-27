@@ -1,0 +1,116 @@
+/* .report-sale-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .sale-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.2s;
+  }
+  
+  .sale-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .sale-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ececec;
+    padding-bottom: 10px;
+  }
+  
+  .sale-body {
+    margin-top: 15px;
+  }
+  
+  .sale-details {
+    margin-top: 10px;
+  }
+  
+  .sale-details h4 {
+    margin-bottom: 5px;
+  }
+  
+  .sale-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sale-details li {
+    background: #f0f0f0;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+   */
+
+
+   .report-sale-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #1a1a1a; /* Fondo negro */
+  }
+  
+  .sale-card {
+    background: #000000; /* Fondo blanco */
+    border-radius: 10px;
+    border: 2px solid #f0f0f0;
+    box-shadow: 0 6px 12px rgba(186, 25, 25, 0.2);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .sale-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #ff00ff; /* Bordes fucsia al pasar el ratón */
+  }
+  
+  .sale-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ff00ff; /* Línea inferior fucsia */
+    padding-bottom: 10px;
+    color: #ea0dee; /* Texto negro */
+  }
+  
+  .sale-body {
+    margin-top: 15px;
+    color: #c880d8; /* Texto negro */
+  }
+  
+  .sale-details {
+    margin-top: 15px;
+    background-color: #ff00ff; /* Fondo fucsia */
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .sale-details h4 {
+    margin-bottom: 10px;
+    color: #000000; /* Texto blanco */
+  }
+  
+  .sale-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sale-details li {
+    background: #1a1a1a; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ff00ff; /* Borde fucsia */
+  }
+  

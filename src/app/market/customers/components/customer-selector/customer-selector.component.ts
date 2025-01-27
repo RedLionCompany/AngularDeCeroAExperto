@@ -24,8 +24,12 @@ export class CustomerSelectorComponent {
     name: '',
     code: '',
     photo: '',
-    direccion: '',
-    establishment : ''
+    address: '',
+    establishment: '',
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   };
 
 
@@ -37,40 +41,59 @@ export class CustomerSelectorComponent {
     code: "Fruts and Vegue",
     establishment: "Tuti Fruti",
     photo: "https://media.gettyimages.com/id/962792890/es/foto/kiev-ukraine-cristiano-ronaldo-of-real-madrid-lifts-the-uefa-champions-league-trophy-following.jpg?s=612x612&w=0&k=20&c=eCahX6yZc6fJTne5GYHfvVRWSjkSDvlN0ogrKlPJDCw=",
-    direccion: "Bogotá"
+    address: "Bogotá",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Aroldo",
     code: "1",
     photo: "https://t3.ftcdn.net/jpg/07/89/67/20/240_F_789672005_x5XRq99IfNQYOHgbN5XAy1V9FaN0XyZH.jpg",
-    direccion: "Bogotá",
-    establishment: "Comando Verde"
-
+    address: "Bogotá",
+    establishment: "Comando Verde",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Chule",
     code: "2",
     photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0JAc3QXr3B3lpFvw0DCGUl3_zMQPYpBOQDQ&usqp=CAU",
-    direccion: "Segundo Piso 11 con 11",
-    establishment: "Chule 2do Piso"
+    address: "Segundo Piso 11 con 11",
+    establishment: "Chule 2do Piso",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Mi Pez",
     code: "3",
     photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2VBt4-d1xCA7DEGZ2HZT7oyGrPlYmBvGuUQ&usqp=CAU",
-    direccion: "Gaira",
-    establishment: "Mi Pez Gaira"
+    address: "Gaira",
+    establishment: "Mi Pez Gaira",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Elvira",
     code: "4",
     photo: "https://t4.ftcdn.net/jpg/03/20/39/89/360_F_320398931_CO8r6ymeSFqeoY1cE6P8dbSGRYiAYj4a.jpg",
-    direccion: "Mercado Publico",
-    establishment: "Mizar"
+    address: "Mercado Publico",
+    establishment: "Mizar",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 1,
@@ -78,40 +101,59 @@ export class CustomerSelectorComponent {
     code: "Fruts and Vegue",
     establishment: "Tuti Fruti",
     photo: "https://media.gettyimages.com/id/962792890/es/foto/kiev-ukraine-cristiano-ronaldo-of-real-madrid-lifts-the-uefa-champions-league-trophy-following.jpg?s=612x612&w=0&k=20&c=eCahX6yZc6fJTne5GYHfvVRWSjkSDvlN0ogrKlPJDCw=",
-    direccion: "Bogotá"
+    address: "Bogotá",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Aroldo",
     code: "1",
     photo: "https://t3.ftcdn.net/jpg/07/89/67/20/240_F_789672005_x5XRq99IfNQYOHgbN5XAy1V9FaN0XyZH.jpg",
-    direccion: "Bogotá",
-    establishment: "Comando Verde"
-
+    address: "Bogotá",
+    establishment: "Comando Verde",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Chule",
     code: "2",
     photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0JAc3QXr3B3lpFvw0DCGUl3_zMQPYpBOQDQ&usqp=CAU",
-    direccion: "Segundo Piso 11 con 11",
-    establishment: "Chule 2do Piso"
+    address: "Segundo Piso 11 con 11",
+    establishment: "Chule 2do Piso",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Mi Pez",
     code: "3",
     photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2VBt4-d1xCA7DEGZ2HZT7oyGrPlYmBvGuUQ&usqp=CAU",
-    direccion: "Gaira",
-    establishment: "Mi Pez Gaira"
+    address: "Gaira",
+    establishment: "Mi Pez Gaira",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   },
   {
     id: 13,
     name: "Elvira",
     code: "4",
     photo: "https://t4.ftcdn.net/jpg/03/20/39/89/360_F_320398931_CO8r6ymeSFqeoY1cE6P8dbSGRYiAYj4a.jpg",
-    direccion: "Mercado Publico",
-    establishment: "Mizar"
+    address: "Mercado Publico",
+    establishment: "Mizar",
+    lastName: '',
+    document: '',
+    tipo_documento_catalogo_id: null,
+    phone: ''
   }
 ];
   
@@ -123,7 +165,7 @@ export class CustomerSelectorComponent {
       const searchText = this.searchQuery.toLowerCase();
       return (
         customer.name.toLowerCase().includes(searchText) ||
-        customer.direccion.toLowerCase().includes(searchText) ||
+        customer.address.toLowerCase().includes(searchText) ||
         customer.establishment.toLowerCase().includes(searchText)
       );
     });
