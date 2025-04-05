@@ -19,15 +19,24 @@ import { SaleDetail } from '../../interfaces/sale-detail.interface';
 })
 export class InvoicePageComponent {
 
-  constructor(public _dialog: MatDialog, public invoicesService: InvoicesService) {}
 
+  constructor(public _dialog: MatDialog, public invoicesService: InvoicesService) {
+
+    this.invoicesService.getNextNumberInvoice().subscribe(response => {
+      console.log(response);
+      this.factNumber = response; // Asigna el valor cuando la respuesta llegue
+      this.invoicesService.sale.number = response.toString();
+    });
+  }
+
+  numeroFactura: string = ''; // Variable para almacenar el número de factura
 
 
   // variables para manejar los componentes
   isActiveCustomer: number = 0;
 
   // number of invoice
-  public factNumber: number = 23456;
+  public factNumber: number = 1;
 
   openModal(): void {
     const dialogRef = this._dialog.open(CustomerSelectorComponent, {
@@ -40,6 +49,11 @@ export class InvoicePageComponent {
       console.log('The dialog was closed');
     });
   }
+
+
+
+
+  
 
   abrirModal():void {
 
@@ -72,7 +86,7 @@ export class InvoicePageComponent {
     
 
   get listLineSellProducts(): SaleDetail[] {
-    return [...this.invoicesService.sale.listSalesDetails!];
+    return [...this.invoicesService.sale.listInvoiceDetails!];
   }
 
   get lineSellProduct(): SaleDetail {
@@ -85,12 +99,16 @@ export class InvoicePageComponent {
 
 
   guardar() {
+    
         console.log("Mostrar el Json");
     
         this.invoicesService.saveInvoice().subscribe(invoice => {
           console.log("dentro del subcribe");
+
+          
           console.log(invoice);
       });
+      //this.printInvoice(invoice.id!);
     /*
         this.clienteService.createCliente(this.cliente).subscribe(
           cliente => {
@@ -113,7 +131,32 @@ export class InvoicePageComponent {
       }
        
       cancelar() {
-        throw new Error('Method not implemented.');
+        console.log("cancelar");
+
+      }
+
+
+      print() {
+        if (!this.numeroFactura.trim()) {
+          alert('Por favor, ingrese un número de factura.');
+          return;
+        }
+        console.log('Número de factura guardado:', this.numeroFactura);
+        // Aquí puedes hacer algo con el número de factura, como enviarlo al backend
+
+        this.invoicesService.printInvoice(parseInt(this.numeroFactura,10));
+      }
+      generatePDF() {
+        console.log('Invoice Id: ' )
+        this.invoicesService.downloadInvoicePdf(parseInt(this.numeroFactura,10));
+       
+      }
+
+
+      printInvoice(invoiceId: number): void {
+        console.log('Invoice Id: ' + invoiceId)
+        this.invoicesService.printInvoice(invoiceId);
+        // this.invoicesService.downloadInvoicePdf(invoiceId);
       }
 
 }

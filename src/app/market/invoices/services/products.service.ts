@@ -12,7 +12,7 @@ import { BACKEND_URL } from '../../../config/config';
 export class ProductsService {
   
 
-  private urlEndPoint: string = `${BACKEND_URL}api`
+  private urlEndPoint: string = `${BACKEND_URL}/api`
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'})
 
   public products: Product[] = [
@@ -52,6 +52,8 @@ export class ProductsService {
   return this.products;
 }*/
   getProducts(): Observable<Product[]> {
+    console.log("get products");
+    console.log(this.urlEndPoint );
     return this.http.get<Product[]>(this.urlEndPoint + '/productos').pipe(
       catchError(e => {
         console.error(e)

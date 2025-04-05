@@ -45,8 +45,9 @@ export class SetUpProductComponent {
     
   }
 
-  setQuantity(number: number) {
-    this.lineSellProduct.quantity = number;
+
+  setQuantity(value: number) {
+      this.lineSellProduct.quantity = value;
     }
     
 
@@ -73,50 +74,57 @@ export class SetUpProductComponent {
       this.lineSellProduct.totalPrice = this.lineSellProduct.pricePerUnit! *this.lineSellProduct.quantity!
       this.onNewProduct.emit({...this.lineSellProduct});
 
-      console.log('top 1 en dwww')
+      
       console.log(this.lineSellProduct);
 
       console.log("Mostrar el Json ");
     
-    
+      
 
 
-  //     this.lineSellProduct.pricePerUnit = undefined;
-  //     this.lineSellProduct.quantity = undefined;
-  //     this.lineSellProduct.product =  { 
-  //       id: 0,
-  //       code: '',
-  //       name: '',
-  //       description: '',
-  //       photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKcGzCaxgQ9nERapwbUJBxxOH-60zG882wvQ&usqp=CAU',
-  //       unit_catalogo: {
-  //         id: 0,
-  //         code: '',
-  //         description: ''
-  //       },
-  //       reorderLevel: 0,
-  //       dimensions: '',
-  //       weight: 0,
-  //       price: 0 
-  // };
-
-
-  
-
+      this.lineSellProduct.pricePerUnit = undefined;
+      this.lineSellProduct.quantity = undefined;
+      this.lineSellProduct.totalPrice = undefined;
+      this.lineSellProduct.product =  { 
+        id: 0,
+        code: '',
+        name: '',
+        description: '',
+        photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKcGzCaxgQ9nERapwbUJBxxOH-60zG882wvQ&usqp=CAU',
+        unit_catalogo: {
+          id: 0,
+          code: '',
+          description: ''
+        },
+        reorderLevel: 0,
+        dimensions: '',
+        weight: 0,
+        price: 0 
+  };
 
   }
   
-
-  calculateSubtotal(lineSellProduct: SaleDetail) {
-    if (!lineSellProduct || !lineSellProduct.pricePerUnit || !lineSellProduct.quantity) {
-      return 0; // Return 0 if price or amount is missing
-    }
-    return lineSellProduct.pricePerUnit * lineSellProduct.quantity;
-  }  
-
-
-
+  formatFraction(value: number): string {
+    const fractions: { [key: number]: string } = {
+      0.125: '1/8',
+      0.25: '1/4',
+      0.5: '1/2',
+      1: '1'
+    };
+    return fractions[value] || value.toString();
+  }
   
+
+  calculateSubtotal(): number {
+    return (this.lineSellProduct.quantity ?? 0) * (this.lineSellProduct.pricePerUnit ?? 0);
+  }
+
+
+  updatePricePerUnit(): void {
+    if ((this.lineSellProduct.quantity ?? 0 > 0) && (this.lineSellProduct.totalPrice ?? 0 > 0)) {
+      this.lineSellProduct.pricePerUnit = this.lineSellProduct.totalPrice! / this.lineSellProduct.quantity! ;
+    }
+  }
 
 }
 

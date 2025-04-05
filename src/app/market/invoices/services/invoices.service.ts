@@ -16,7 +16,7 @@ import { BACKEND_URL } from '../../../config/config';
 export class InvoicesService {
   
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'})
-  private urlEndPoint: string = BACKEND_URL + 'api/sales/' 
+  private urlEndPoint: string = BACKEND_URL + '/api/sales' 
   
   private timeZone = 'America/Bogota';
 
@@ -47,7 +47,7 @@ export class InvoicesService {
   }
 
   public sale: Sale = {
-    number: '369',
+    
     customer: {
       id: 1,
       name: '',
@@ -58,9 +58,11 @@ export class InvoicesService {
       code: '',
       photo: 'https://cdn.prod.website-files.com/5e38f1a8e654dab96f303972/63c84da22b7ea11f3a242b71_Desaf%C3%ADos-de-Servicio-al-Cliente-en-los-Bancos-Cover.png',
       address: '',
-      establishment: ""
+      establishment: "",
+      
     },
-    listSalesDetails: [],
+    status: "ACTIVE",
+    listInvoiceDetails: [],
     totalAmount: 0
   };
 
@@ -72,15 +74,15 @@ export class InvoicesService {
 
     const newLineSellProduct: SaleDetail = { ...saleDetail};
 
-    this.sale.listSalesDetails!.push(saleDetail);
+    this.sale.listInvoiceDetails!.push(saleDetail);
     this.sale.totalAmount = this.invoiceTotal();
   }
 
 
   invoiceTotal (): number{
     let total = 0;
-    for (let index = 0; index < this.sale.listSalesDetails!.length; index++) {
-      total += this.sale.listSalesDetails![index].quantity! * this.sale.listSalesDetails![index].pricePerUnit!;
+    for (let index = 0; index < this.sale.listInvoiceDetails!.length; index++) {
+      total += this.sale.listInvoiceDetails![index].quantity! * this.sale.listInvoiceDetails![index].pricePerUnit!;
     }
     return total;
   }
@@ -95,6 +97,7 @@ export class InvoicesService {
     console.log(this.sale);
   }
 
+
   saveInvoice(): Observable<Sale> {
 
     
@@ -108,17 +111,15 @@ export class InvoicesService {
     console.log("date current",currentDate);
     console.log("date new",new Date);
 
-    
 
 
-    return this.http.post<Sale>(this.urlEndPoint,this.sale, {headers: this.httpHeaders}).pipe(
+    return this.http.post<Sale>(this.urlEndPoint, this.sale, {headers: this.httpHeaders}).pipe(
       map((response: any) => {
         console.log("Dentro del servicio");
         console.log(response.Customer as Sale)
         return response.Sale as Sale
       }),
       catchError( e => {
-
 
         if (e.status == 400) {
           return throwError(e);
@@ -132,7 +133,6 @@ export class InvoicesService {
   }
 
 
-
   getCurrentDate(): Date {
     const currentDate = new Date();
     const offset = -5 * 60 * 60000; // Bogotá offset (-5 horas)
@@ -141,11 +141,81 @@ export class InvoicesService {
   }
 
 
-
   getInvoices(): Observable<SaleResponse> {
       a  : '';
-    return this.http.get<SaleResponse>(`${this.urlEndPoint}page/0`);
+    return this.http.get<SaleResponse>(`${this.urlEndPoint}/page/0`);
   }
+
+  previewInvoicePdf(invoiceId: number): void {
+    const url = `${this.urlEndPoint}/${invoiceId}/pdf`;
+    window.open(url, '_blank');
+}
+
+  downloadInvoicePdf(invoiceId: number): void {
+    console.log('downloadInvoicePdf d d d d d d d d d ');
+    const url = `${this.urlEndPoint}/${invoiceId}/pdf`;
+    this.http.get(url, { responseType: 'blob' }).subscribe((response) => {
+        const blob = new Blob([response], { type: 'application/pdf' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `factura_${invoiceId}.pdf`;
+        link.click();
+    });
+  }
+
+
+  printInvoice(invoiceId: number): void {
+    console.log('Printtttt tt t tt ttt ');
+    const url = `${this.urlEndPoint}/${invoiceId}/pdf`;
+    this.http.get(url, { responseType: 'blob' }).subscribe(blob => {
+      const fileURL = URL.createObjectURL(blob);
+      const iframe = document.createElement('iframe');
+
+      iframe.style.display = 'none';
+      iframe.src = fileURL;
+      document.body.appendChild(iframe);
+
+      iframe.contentWindow?.focus();
+      iframe.contentWindow?.print();
+
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+      }, 5000);
+    });
+  }
+
+  printInvoiceOld(invoiceId: number): void {
+    // Lógica para descargar o imprimir la factura
+    const url = `${this.urlEndPoint}/${invoiceId}/download`; // Endpoint para descargar el PDF
+    window.open(url, '_blank');
+  }
+
+
+getNextNumberInvoice(): Observable<number> {
+return this.http.post<number>('http://localhost:8080/api/sales/next',null, {headers: this.httpHeaders}).pipe(
+      map((response: any) => {
+        console.log("Dentro del servicio");
+        console.log(response as number)
+        return response as number
+      }),
+      catchError( e => {
+        if (e.status == 400) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+       // Swal.fire(e.error.mensaje, e.error.error , 'error');
+        return throwError(e);
+      })
+    );
+}
+
+
+
+
+getCustomers(): Observable<Customer[]> {
+  //return this.http.get<Customer[]>(`${this.urlEndPoint}`);http://localhost:8080/api/clientes
+  return this.http.get<Customer[]>('http://localhost:8080/api/clientes');
+}
 /*    //http://localhost:8080/api/sales/page/0
     console.log("Consulta de facturas");
     const url = `${this.urlEndPoint}page/0`; 

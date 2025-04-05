@@ -1,6 +1,5 @@
 
 
-
 <!-- <div class="invoice-page">
     <button (click)="openModal()">Seleccionar Cliente</button>
 </div> -->
@@ -14,7 +13,7 @@
           Factura de Venta
       </p>
       <p style="color: #A3A3A3; font-size: 26px; margin: 5px 0 0;">
-          # 3423
+          # {{factNumber}}
       </p>
     </div>
   
@@ -43,11 +42,22 @@
       <div class="col-md-6">
         <app-list-products  [listLineSellProduct]="listLineSellProducts" ></app-list-products>
         <app-total-invoice [listLineSellProduct]="listLineSellProducts"></app-total-invoice>
-    
+
+        <br>
+
+        <input type="text" [(ngModel)]="numeroFactura" placeholder="Ingrese número de factura" class="form-control form-control-lg mb-2">
+
         <div class="payment-options">
-          <button class="btn btn-danger payment-options" (click)="cancelar()">Cancelar</button>
-          <br>
           <button class="btn btn-primary payment-options " (click)="guardar()">Guardar</button>
+          <button class="btn btn-primary payment-options" (click)="generatePDF()">PDF</button>
+          <button class="btn btn-primary payment-options" (click)="print()">Imprimir</button>
+          
+          <button class="btn btn-danger payment-options" (click)="cancelar()">Cancelar</button>
+     
+          
+
+          
+          
         </div>
   
       </div>

@@ -36,7 +36,7 @@
         <div class="sale-details">
           <h4>Details:</h4>
           <ul>
-            <li *ngFor="let detail of sale.listSalesDetails">
+            <li *ngFor="let detail of sale.listInvoiceDetails">
               <strong>{{ detail.product?.name }}</strong> - {{ detail.quantity }} x ${{ detail.pricePerUnit | number: '1.2-2' }}
               <span>Total: ${{ detail.totalPrice | number: '1.2-2' }}</span>
             </li>

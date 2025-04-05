@@ -8,7 +8,10 @@ export interface Sale {
    saleDateTime?: Date;
    customer?: Customer;
    totalAmount: number;
-   listSalesDetails?: SaleDetail[];
+   listInvoiceDetails?: SaleDetail[];
+   status?: String;
+   discount?:Number;
+   
    //payment?: Payment[]; TODO: this is important
   }
 

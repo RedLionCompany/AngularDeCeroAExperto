@@ -24,6 +24,7 @@
 .customer-details {
   display: flex;
   align-items: center;
+  color: fuchsia;
 }
 
 .customer-photo img {
@@ -49,7 +50,7 @@
 
 .customer-info span {
   font-size: 14px;
-  color: #666;
+  color: fuchsia;
 }
 
 .search-bar {

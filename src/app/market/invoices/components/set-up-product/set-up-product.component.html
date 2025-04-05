@@ -1,46 +1,247 @@
-<div class="row">
-    <div class="col-md-4">
-        <img [src]="lineSellProduct.product?.photo" alt="{{ lineSellProduct.product?.name }}" class="product-image product-image-small">
-     
+<!-- <div class="row align-items-center p-3 bg-dark text-white rounded shadow">
+  <div class="col-md-4 text-center">
+      <img 
+          [src]="lineSellProduct.product?.photo" 
+          alt="{{ lineSellProduct.product?.name }}" 
+          class="product-image img-fluid rounded border border-fuchsia">
+  </div>
+  
+  <div class="col-md-8">
+      <h5 class="product-name text-fuchsia mb-2">{{ lineSellProduct.product?.name }}</h5>
+      <ul class="list-unstyled">
+          <li><strong>Entrada:</strong> <span>{{ lineSellProduct.product?.price | currency }}</span></li>
+          <li><strong>Vendidos:</strong> <span>{{ 10 | currency }}</span></li>
+          <li><strong>Stock:</strong> <span>{{ 20 }}</span></li>
+      </ul>
+
+      <form (ngSubmit)="sendProduct()">
+          <div class="mb-3">
+              <label for="priceInput">Precio por unidad:</label>
+              <div class="input-group">
+                  <span class="input-group-text bg-fuchsia text-white">$</span>
+                  <input 
+                      id="priceInput" 
+                      type="number" 
+                      [(ngModel)]="lineSellProduct.pricePerUnit" 
+                      name="price" 
+                      class="form-control" 
+                      placeholder="Valor">
+              </div>
+              <div *ngIf="lineSellProduct.pricePerUnit! < 1" class="text-danger">El valor NO es válido</div>
+          </div>
+
+          <div class="mb-3">
+              <label for="quantityInput">Cantidad:</label>
+              <div class="input-group">
+                  <span class="input-group-text bg-fuchsia text-white">#</span>
+                  <input 
+                      id="quantityInput" 
+                      type="number" 
+                      inputmode="numeric" 
+                      [(ngModel)]="lineSellProduct.quantity" 
+                      name="amount" 
+                      class="form-control" 
+                      placeholder="Cantidad">
+              </div>
+              <div class="btn-group mt-2">
+                  <button *ngFor="let inc of [1/8, 1/4, 1/2, 1]" type="button" class="btn btn-outline-fuchsia" (click)="addQuantity(inc)">{{ formatFraction(inc) }}</button>
+                  <button type="button" class="btn btn-outline-danger" (click)="setQuantity(0)">Borrar</button>
+              </div>
+              <div *ngIf="lineSellProduct.quantity! <= 0" class="text-danger">La cantidad NO es válida</div>
+          </div>
+
+          <div class="mb-3">
+              <label for="totalInput">Total:</label>
+              <div class="input-group">
+                  <span class="input-group-text bg-fuchsia text-white">$</span>
+                  <input 
+                      id="totalInput" 
+                      type="number" 
+                      [(ngModel)]="lineSellProduct.totalPrice" 
+                      name="total" 
+                      class="form-control" 
+                      placeholder="Total" 
+                      (change)="updatePricePerUnit()">
+              </div>
+          </div>
+
+          <div class="mb-3">
+              <strong>Subtotal: </strong>
+              <span class="subtotal-display">{{ calculateSubtotal() | currency }}</span>
+          </div>
+
+          <button *ngIf="lineSellProduct.quantity! > 0" type="submit" class="btn btn-fuchsia">Agregar</button>
+      </form>
+  </div>
+</div> -->
+
+
+<!-- 
+<div class="row align-items-center p-3 bg-dark text-white rounded shadow product-container">
+    <div class="col-md-4 text-center">
+        <img 
+            [src]="lineSellProduct.product?.photo" 
+            alt="{{ lineSellProduct.product?.name }}" 
+            class="product-image img-fluid rounded border border-fuchsia">
     </div>
-
-    <div class="stock-info d-flex flex-column">
-      <h5 class="product-name text-start mb-2">{{ lineSellProduct.product?.name }}</h5>
-      <ul class="stock-details list-unstyled pl-0">
-        <li><strong>Entrada:</strong> <span>{{ lineSellProduct.product?.price }}</span></li>
-        <li><strong>Vendidos:</strong> <span>{{ lineSellProduct.product?.price }}</span></li>
-        <li><strong>Stock:</strong> <span>{{ lineSellProduct.product?.price }}</span></li>
-
-    <div class="col-md-6">
-        <form class="row label-whrite" (ngSubmit)="sendProduct()">
+    
+    <div class="col-md-8">
+        <h5 class="product-name text-fuchsia mb-2">{{ lineSellProduct.product?.name }}</h5>
+        <ul class="list-unstyled">
+            <li><strong>Entrada:</strong> <span>{{ lineSellProduct.product?.price | currency }}</span></li>
+            <li><strong>Vendidos:</strong> <span>{{ 1 | currency }}</span></li>
+            <li><strong>Stock:</strong> <span>{{ 2 }}</span></li>
+        </ul>
+  
+        <form (ngSubmit)="sendProduct()">
             <div class="mb-3">
                 <label for="priceInput">Precio por unidad:</label>
                 <div class="input-group">
-                    <span class="input-group-text">$</span>
-                    <input id="priceInput" type="number" [(ngModel)]="lineSellProduct.pricePerUnit" name="price" class="form-control" placeholder="Valor">
+                    <span class="input-group-text bg-fuchsia text-white">$</span>
+                    <input 
+                        id="priceInput" 
+                        type="number" 
+                        [(ngModel)]="lineSellProduct.pricePerUnit" 
+                        name="price" 
+                        class="form-control" 
+                        placeholder="Valor">
                 </div>
-                <div *ngIf="lineSellProduct.pricePerUnit! < 1" class="validation-message">El valor NO es válido</div>
+                <div *ngIf="lineSellProduct.pricePerUnit! < 1" class="text-danger">El valor NO es válido</div>
             </div>
-
+  
             <div class="mb-3">
                 <label for="quantityInput">Cantidad:</label>
                 <div class="input-group">
-                    <span class="input-group-text">#</span>
-                    <input id="quantityInput" type="number" [(ngModel)]="lineSellProduct.quantity" name="amount" class="form-control" placeholder="Cantidad">
+                    <span class="input-group-text bg-fuchsia text-white">#</span>
+                    <input 
+                        id="quantityInput" 
+                        type="number" 
+                        inputmode="numeric" 
+                        [(ngModel)]="lineSellProduct.quantity" 
+                        name="amount" 
+                        class="form-control" 
+                        placeholder="Cantidad">
                 </div>
-                <div *ngIf="lineSellProduct.quantity! <= 0" class="validation-message">La cantidad NO es válida</div>
+                <div class="btn-group mt-2">
+                    <button *ngFor="let inc of [0.125, 0.25, 0.5, 1]" type="button" class="btn btn-outline-fuchsia" (click)="addQuantity(inc)">{{ formatFraction(inc) }}</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="setQuantity(0)">Borrar</button>
+                </div>
+                <div *ngIf="lineSellProduct.quantity! <= 0" class="text-danger">La cantidad NO es válida</div>
             </div>
-
-            <div class="btn-group mb-3">
-                <button *ngFor="let inc of [1/2, 1/4, 1]" type="button" class="btn btn-outline-primary" (click)="addQuantity(inc)">{{ inc }}</button>
-                <button type="button" class="btn btn-outline-danger" (click)="setQuantity(0)">Borrar</button>
+  
+            <div class="mb-3">
+                <label for="totalInput">Total:</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-fuchsia text-white">$</span>
+                    <input 
+                        id="totalInput" 
+                        type="number" 
+                        [(ngModel)]="lineSellProduct.totalPrice" 
+                        name="total" 
+                        class="form-control" 
+                        placeholder="Total" 
+                        (change)="updatePricePerUnit()">
+                </div>
             </div>
-
+  
             <div class="mb-3">
                 <strong>Subtotal: </strong>
-                <span class="subtotal-display">{{ calculateSubtotal(lineSellProduct) | currency:'USD':'symbol' }}</span>
+                <span class="subtotal-display">{{ calculateSubtotal() | currency }}</span>
             </div>
-
-            <button *ngIf="lineSellProduct.quantity! > 0" type="submit" class="btn btn-primary">Agregar</button>
+  
+            <button *ngIf="lineSellProduct.quantity! > 0" type="submit" class="btn btn-fuchsia">Agregar</button>
         </form>
     </div>
+  </div>
+   -->
+
+
+   <div class="row align-items-center p-3 bg-dark text-white rounded shadow product-container">
+ 
+  
+
+    <div class="col-md-8">
+        <img 
+                [src]="lineSellProduct.product?.photo" 
+                alt="{{ lineSellProduct.product?.name }}" 
+                class="product-image img-fluid rounded border border-fuchsia">
+
+        <h5 class="product-name text-fuchsia mb-3">{{ lineSellProduct.product?.name }}</h5>
+        <ul class="list-unstyled mb-3">
+            <li><strong>Entrada:</strong> <span>{{ lineSellProduct.product?.price | currency }}</span></li>
+            <li><strong>Vendidos:</strong> <span>{{ 1 | currency }}</span></li>
+            <li><strong>Stock:</strong> <span>{{ 2 }}</span></li>
+        </ul>
+
+        
+        <form (ngSubmit)="sendProduct()">
+            <div class="mb-3">
+                <label for="priceInput" class="form-label">Precio por unidad:</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-fuchsia text-white">$</span>
+                    <input 
+                        id="priceInput" 
+                        type="number" 
+                        [(ngModel)]="lineSellProduct.pricePerUnit" 
+                        name="price" 
+                        class="form-control" 
+                        placeholder="Valor" required>
+                </div>
+                <div *ngIf="lineSellProduct.pricePerUnit! < 1" class="text-danger">El valor NO es válido</div>
+            </div>
+  
+            <div class="mb-3">
+                <label for="quantityInput" class="form-label">Cantidad:</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-fuchsia text-white">#</span>
+                    <input 
+                        id="quantityInput" 
+                        type="number" 
+                        inputmode="numeric" 
+                        [(ngModel)]="lineSellProduct.quantity" 
+                        name="amount" 
+                        class="form-control" 
+                        placeholder="Cantidad" required>
+                </div>
+                <div class="btn-group mt-2">
+                    <button *ngFor="let inc of [0.125, 0.25, 0.5, 1]" 
+                            type="button" 
+                            class="btn btn-outline-fuchsia" 
+                            (click)="addQuantity(inc)">
+                        {{ formatFraction(inc) }}
+                    </button>
+                    <button type="button" 
+                            class="btn btn-outline-danger" 
+                            (click)="setQuantity(0)">
+                        Borrar
+                    </button>
+                </div>
+                <div *ngIf="lineSellProduct.quantity! <= 0" class="text-danger">La cantidad NO es válida</div>
+            </div>
+  
+            <div class="mb-3">
+                <label for="totalInput" class="form-label">Total:</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-fuchsia text-white">$</span>
+                    <input 
+                        id="totalInput" 
+                        type="number" 
+                        [(ngModel)]="lineSellProduct.totalPrice" 
+                        name="total" 
+                        class="form-control" 
+                        placeholder="Total" 
+                        (change)="updatePricePerUnit()">
+                </div>
+            </div>
+  
+            <div class="mb-3">
+                <strong>Subtotal: </strong>
+                <span class="subtotal-display">{{ calculateSubtotal() | currency }}</span>
+            </div>
+  
+            <button *ngIf="lineSellProduct.quantity! > 0" 
+                    type="submit" 
+                    class="btn btn-fuchsia w-100">Agregar</button>
+        </form>
+    </div>
+</div>

@@ -1,48 +1,73 @@
+/* .bg-dark {
+  background-color: #111;
+}
 
-.product-image-small {
-    width: 180px; /* Adjust width as needed */
-    height: 120px; /* Adjust height as needed */
-    border: 2px solid white; /* Adjust border width as needed */
-    padding: 5px; /* Add padding to create space between the border and the image */
-  }
-  
+.text-fuchsia {
+  color: #e91e63;
+}
 
-  .product-name {
-    color:fuchsia; /* Dark blue color */
-    font-weight: bold; /* Optional: Make the text bold */
-    text-transform: uppercase; /* Optional: Convert text to uppercase */
-    margin-bottom: 10px; /* Add some margin below the heading */
-  }
+.border-fuchsia {
+  border-color: #e91e63 !important;
+}
 
-  .subtotal-display {
-    font-size: 18px; /* Increase font size */
-    font-weight: bold; /* Make text bold */
-    color: fuchsia; /* Green color (same as saldo) */
-  }
+.btn-outline-fuchsia {
+  border-color: #e91e63;
+  color: #e91e63;
+}
+
+.btn-fuchsia {
+  background-color: #e91e63;
+  color: white;
+}
+
+.product-image {
+  max-width: 100px;
+  max-height: 100px;
+} */
 
 
-  .quantity-buttons .btn-large {
-    padding: 10px 20px; /* Adjust padding for larger buttons */
-    font-size: 16px; /* Adjust font size for larger buttons */
-  }
-  
-  .quantity-buttons .btn-medium {
-    padding: 8px 16px; /* Adjust padding for medium buttons */
-    font-size: 14px; /* Adjust font size for medium buttons */
-  }
-  
-  .validation-message {
-    color: red;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .positive-value-message {
-    color: green;
-    font-style: italic;
-    margin-top: 10px;
-  }
-  
-  .label-whrite {
-    color: #A3A3A3;
-  }
+.product-container {
+  margin-bottom: 20px;
+  padding: 15px;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  max-height: 150px;
+  object-fit: cover;
+}
+
+.border-fuchsia {
+  border-color: #d63384 !important;
+}
+
+.text-fuchsia {
+  color: #d63384 !important;
+}
+
+.btn-fuchsia {
+  background-color: #d63384;
+  color: white;
+  border: none;
+}
+
+.btn-fuchsia:hover {
+  background-color: #c71e6e;
+}
+
+.btn-outline-fuchsia {
+  border-color: #d63384;
+  color: #d63384;
+}
+
+.btn-outline-fuchsia:hover {
+  background-color: #d63384;
+  color: white;
+}
+
+.subtotal-display {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #cc15c3;
+}
